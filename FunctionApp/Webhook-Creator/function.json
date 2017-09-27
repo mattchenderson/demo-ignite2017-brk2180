@@ -7,15 +7,14 @@
       "authLevel": "anonymous",
       "methods": [
         "get"
-      ],
-      "route": "create"
+      ]
     },
     {
-      "type": "graphwebhooksubscription",
+      "type": "graphWebhookSubscription",
       "name": "clientState",
       "direction": "out",
       "action": "create",
-      "listen": "me/mailFolders('Inbox')/messages",
+      "subscriptionResource": "me/mailFolders('Inbox')/messages",
       "changeTypes": [
         "created"
       ],

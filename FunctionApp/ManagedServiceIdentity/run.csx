@@ -2,15 +2,15 @@ using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives; 
 
-public static HttpResponseMessage Run(HttpRequest req, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequest req, TraceWriter log)
 {
     string resource = req.Query
         .FirstOrDefault(q => string.Compare(q.Key, "resource", true) == 0)
         .Value;
     string apiversion = req.Query
-        .FirstOrDefault(q => string.Compare(q.Key, "apiversion", true) == 0)
+        .FirstOrDefault(q => string.Compare(q.Key, "api-version", true) == 0)
         .Value;
-    return GetToken(resource, apiversion);
+    return await GetToken(resource, apiversion);
 }
 
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
