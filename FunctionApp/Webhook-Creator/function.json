@@ -1,0 +1,31 @@
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "authLevel": "anonymous",
+      "methods": [
+        "get"
+      ],
+      "route": "create"
+    },
+    {
+      "type": "graphwebhooksubscription",
+      "name": "clientState",
+      "direction": "out",
+      "action": "create",
+      "listen": "me/mailFolders('Inbox')/messages",
+      "changeTypes": [
+        "created"
+      ],
+      "identity": "userFromRequest"
+    },
+    {
+      "type": "http",
+      "name": "res",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}

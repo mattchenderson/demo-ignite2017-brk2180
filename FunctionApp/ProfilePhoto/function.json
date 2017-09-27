@@ -1,0 +1,23 @@
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "authLevel": "anonymous"
+    },
+    {
+      "type": "token",
+      "direction": "in",
+      "name": "graphToken",
+      "resource": "https://graph.microsoft.com",
+      "identity": "userFromRequest"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
